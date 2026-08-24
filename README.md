@@ -171,29 +171,6 @@ Build command: pip install -r requirements.txt
 Start command: gunicorn app:app
 ```
 
-Required Render variables:
-
-```text
-SECRET_KEY=<random value>
-MYSQL_HOST=<Railway public host>
-MYSQL_PORT=<Railway public port>
-MYSQL_USER=<Railway username>
-MYSQL_PASSWORD=<Railway password>
-MYSQL_DB=<Railway database name>
-OVERDUE_DAYS=3
-```
-
-Optional email variables:
-
-```text
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USE_TLS=true
-MAIL_USERNAME=<SMTP email>
-MAIL_PASSWORD=<SMTP app password>
-MAIL_DEFAULT_SENDER=<same SMTP email>
-```
-
 See `DEPLOYMENT.md` for the complete process.
 
 ## Route / API Documentation
