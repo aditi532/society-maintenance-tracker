@@ -4,15 +4,8 @@ A hackathon-scale platform where residents raise maintenance complaints and trac
 
 ## Live Application
 
-**Hosted application:** [Open Society Maintenance Tracker](PASTE_YOUR_RENDER_URL_HERE)
-
-Replace `PASTE_YOUR_RENDER_URL_HERE` with the final Render URL after deployment, for example:
-
-```text
-https://society-maintenance-tracker.onrender.com
-```
-
-**Source code:** [GitHub repository](https://github.com/aditi532/society-maintenance-tracker)
+**Hosted application:** [Open Society Maintenance Tracker]
+https://society-maintenance-tracker-nxc8.onrender.com
 
 ### Demo Access
 
