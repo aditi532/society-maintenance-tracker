@@ -262,10 +262,3 @@ python -m unittest discover -s tests -v
 ```
 
 The suite checks route guards, overdue behavior, template compilation, complaint validation, image validation, unique filenames, history insertion, and admin update validation. MySQL-backed workflows should also be manually checked after deployment.
-
-## Hackathon Limitations
-
-- Emails are sent synchronously rather than through a job queue.
-- Photos use the local filesystem. Free Render instances may lose uploaded photos after restart/redeploy.
-- This uses Flask form routes instead of a separate JSON REST API.
-- The project intentionally avoids production-level infrastructure and advanced security additions outside the hackathon scope.
