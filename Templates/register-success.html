@@ -1,0 +1,2 @@
+{% extends "auth-base.html" %}{% block title %}Account ready · Maintain{% endblock %}
+{% block form %}<div class="success-orbit"><span>✓</span></div><div class="auth-copy"><span class="kicker">YOU ARE ALL SET</span><h1>Welcome<br>home.</h1><p>Your resident account is ready. Sign in to raise your first maintenance request.</p></div><a class="btn primary wide" href="{{ url_for('login') }}">Continue to sign in <span>→</span></a>{% endblock %}

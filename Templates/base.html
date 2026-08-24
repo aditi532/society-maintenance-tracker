@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Society Maintenance Tracker{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  {% set current_portal = 'admin' if request.path.startswith('/admin') else 'resident' %}
+  <div class="shell">
+    <aside class="rail">
+      <a class="wordmark" href="{{ url_for('admin_dashboard') if current_portal == 'admin' else url_for('dashboard') }}"><span class="mark">M</span><span>maintain<span class="accent">.</span></span></a>
+      <div class="portal-label">{{ 'Operations desk' if current_portal == 'admin' else 'Resident portal' }}</div>
+      <nav class="rail-nav">
+        {% if current_portal == 'admin' %}
+          <a class="{{ 'active' if request.path == '/admin/dashboard' }}" href="{{ url_for('admin_dashboard') }}"><span class="nav-icon">⌂</span>Overview</a>
+          <a class="{{ 'active' if request.path.startswith('/admin/complaints') }}" href="{{ url_for('admin_complaints') }}"><span class="nav-icon">◎</span>Work queue</a>
+          <a class="{{ 'active' if request.path.startswith('/admin/residents') }}" href="{{ url_for('admin_residents') }}"><span class="nav-icon">◌</span>Residents</a>
+          <a class="{{ 'active' if request.path.startswith('/admin/notices') }}" href="{{ url_for('admin_notices') }}"><span class="nav-icon">◇</span>Notice board</a>
+        {% else %}
+          <a class="{{ 'active' if request.path == '/dashboard' }}" href="{{ url_for('dashboard') }}"><span class="nav-icon">⌂</span>Home</a>
+          <a class="{{ 'active' if request.path.startswith('/complaints/new') }}" href="{{ url_for('complaint_new') }}"><span class="nav-icon">＋</span>Raise issue</a>
+          <a class="{{ 'active' if request.path.startswith('/complaints') and not request.path.startswith('/complaints/new') }}" href="{{ url_for('my_complaints') }}"><span class="nav-icon">◎</span>My requests</a>
+          <a class="{{ 'active' if request.path.startswith('/notices') }}" href="{{ url_for('notices') }}"><span class="nav-icon">◇</span>Notice board</a>
+          <a class="{{ 'active' if request.path.startswith('/profile') }}" href="{{ url_for('profile') }}"><span class="nav-icon">◌</span>Profile</a>
+        {% endif %}
+      </nav>
+      <div class="rail-foot">
+        <div class="mini-avatar">{{ (session.admin_name if current_portal == 'admin' else session.resident_name)|default('U', true)|first|upper }}</div>
+        <div><strong>{{ session.admin_name if current_portal == 'admin' else session.resident_name }}</strong><span>{{ 'Administrator' if current_portal == 'admin' else 'Resident' }}</span></div>
+        <a title="Sign out" href="{{ url_for('admin_logout') if current_portal == 'admin' else url_for('logout') }}">↗</a>
+      </div>
+    </aside>
+    <main class="workspace">
+      <div class="mobile-head"><a class="wordmark" href="#"><span class="mark">M</span><span>maintain<span class="accent">.</span></span></a><span>{{ 'Admin' if current_portal == 'admin' else 'Resident' }}</span></div>
+      {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages %}<div class="flash-stack">{% for category,message in messages %}<div class="flash {{ category }}"><span>{{ '!' if category in ['warning','error'] else '✓' }}</span>{{ message }}</div>{% endfor %}</div>{% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+    <nav class="mobile-dock">
+      {% if current_portal == 'admin' %}
+        <a class="{{ 'active' if request.path == '/admin/dashboard' }}" href="{{ url_for('admin_dashboard') }}"><span>⌂</span>Home</a>
+        <a class="{{ 'active' if request.path.startswith('/admin/complaints') }}" href="{{ url_for('admin_complaints') }}"><span>◎</span>Queue</a>
+        <a class="{{ 'active' if request.path.startswith('/admin/residents') }}" href="{{ url_for('admin_residents') }}"><span>◌</span>People</a>
+        <a class="{{ 'active' if request.path.startswith('/admin/notices') }}" href="{{ url_for('admin_notices') }}"><span>◇</span>Notices</a>
+      {% else %}
+        <a class="{{ 'active' if request.path == '/dashboard' }}" href="{{ url_for('dashboard') }}"><span>⌂</span>Home</a>
+        <a class="{{ 'active' if request.path.startswith('/complaints/new') }}" href="{{ url_for('complaint_new') }}"><span>＋</span>Raise</a>
+        <a class="{{ 'active' if request.path.startswith('/complaints') and not request.path.startswith('/complaints/new') }}" href="{{ url_for('my_complaints') }}"><span>◎</span>Requests</a>
+        <a class="{{ 'active' if request.path.startswith('/notices') }}" href="{{ url_for('notices') }}"><span>◇</span>Notices</a>
+      {% endif %}
+    </nav>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

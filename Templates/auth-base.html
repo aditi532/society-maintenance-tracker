@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}Maintain{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-form"><a class="wordmark dark" href="{{ url_for('login') }}"><span class="mark">M</span><span>maintain<span class="accent">.</span></span></a>{% block form %}{% endblock %}</section>
+    <section class="auth-visual">
+      <div class="sky-copy"><span class="kicker light">ONE SOCIETY. ONE CLEAR VIEW.</span><h2>Less chasing.<br>More fixing.</h2><p>Every maintenance request, update and community notice in one calm place.</p></div>
+      <div class="city"><div class="sun"></div><div class="tower tower-a">{% for i in range(9) %}<i></i>{% endfor %}</div><div class="tower tower-b">{% for i in range(12) %}<i></i>{% endfor %}</div><div class="tower tower-c">{% for i in range(8) %}<i></i>{% endfor %}</div><div class="ground"></div></div>
+      <div class="floating-ticket"><span class="pulse"></span><div><b>Lift maintenance</b><small>Moved to In Progress</small></div><strong>12m</strong></div>
+    </section>
+  </main>
+</body></html>
