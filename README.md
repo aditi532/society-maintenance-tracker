@@ -2,6 +2,31 @@
 
 A hackathon-scale platform where residents raise maintenance complaints and track progress, while admins prioritize work, update statuses, publish notices, and monitor overdue issues.
 
+## Live Application
+
+**Hosted application:** [Open Society Maintenance Tracker](PASTE_YOUR_RENDER_URL_HERE)
+
+Replace `PASTE_YOUR_RENDER_URL_HERE` with the final Render URL after deployment, for example:
+
+```text
+https://society-maintenance-tracker.onrender.com
+```
+
+**Source code:** [GitHub repository](https://github.com/aditi532/society-maintenance-tracker)
+
+### Demo Access
+
+```text
+Resident registration: <HOSTED_URL>/register
+Resident login:        <HOSTED_URL>/login
+Admin login:           <HOSTED_URL>/admin/login
+
+Admin username: admin
+Admin password: admin123
+```
+
+Create a resident account from the registration page to demonstrate the resident workflow.
+
 ## Technology
 
 - Python 3.12 and Flask

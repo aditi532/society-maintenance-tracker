@@ -25,6 +25,8 @@ The ZIP contains source code, templates, static files, tests, database schemas, 
 PENDING: paste the final Render URL here after deployment
 ```
 
+Also replace `PASTE_YOUR_RENDER_URL_HERE` in the **Live Application** section of `README.md` and replace `<HOSTED_URL>` in its demo links.
+
 GitHub repository:
 
 ```text
