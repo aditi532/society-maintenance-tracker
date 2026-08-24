@@ -10,9 +10,9 @@ https://society-maintenance-tracker-nxc8.onrender.com
 ### Demo Access
 
 ```text
-Resident registration: <HOSTED_URL>/register
-Resident login:        <HOSTED_URL>/login
-Admin login:           <HOSTED_URL>/admin/login
+Resident registration: https://society-maintenance-tracker-nxc8.onrender.com/register
+Resident login:        https://society-maintenance-tracker-nxc8.onrender.com/login
+Admin login:           https://society-maintenance-tracker-nxc8.onrender.com/admin/login
 
 Admin username: admin
 Admin password: admin123
